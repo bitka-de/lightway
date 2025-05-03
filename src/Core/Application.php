@@ -8,7 +8,10 @@ class Application
 
     public function run()
     {
-        // Run the application
-        echo "Application is running!";
+        $router = new Router();
+        $router->get('/', function() {
+            echo  "Hello, World!";
+        });
+        $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
     }
 }
