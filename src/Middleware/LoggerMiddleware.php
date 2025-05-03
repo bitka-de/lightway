@@ -1,2 +1,5 @@
 <?php
-// TODO: Implement LoggerMiddleware.php
+
+namespace Lightway\Middleware;
+
+class LoggerMiddleware{}

@@ -2,10 +2,20 @@
 
 namespace Lightway\Controllers;
 
-class HomeController
+class HomeController extends Controller
 {
+
+    public function index()
+    {
+        $this->view->render('home', [
+            'title' => 'About Us',
+        ]);
+    }
+
     public function about()
     {
-        echo "What´s about you?!";
+        $this->view->render('home', [
+            'title' => 'About Us',
+        ]);
     }
 }

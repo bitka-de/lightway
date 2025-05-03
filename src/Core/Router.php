@@ -62,8 +62,3 @@ class Router
         throw new \Exception("Route {$uri} not found.");
     }
 }
-
-// Beispiel Nutzung
-// $router = new Router();
-// $router->get('/users', [UserController::class, 'index']);
-# kann ich auch mir callbacks arbeiten?

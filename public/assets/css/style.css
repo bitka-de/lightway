@@ -1,0 +1,283 @@
+:root {
+  --max-width: 1440px;
+  --clr-neutral-light: #f3f1f1;
+  --clr-neutral-dark: #a9a7a7;
+  --clr-neutral: #cbc9c9;
+  --clr-brand: #f15757;
+  --clr-text: #1D1D1F;
+  --clr-text-muted: #6E6E73;
+
+  --size: 16px;
+}
+/* === Reset & Base Layout === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--size);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--clr-text);
+}
+
+.bitka {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.content {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.x-center {
+  max-width: var(--max-width);
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* === Header & Stacking Context === */
+.bit-header {
+  position: relative;
+  isolation: isolate; /* erzeugt eigenen Stacking‑Context */
+  z-index: 10;
+  background: var(--clr-neutral-light);
+  padding-block: 1rem;
+}
+
+.bit-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.bit-header__logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.bit-header__logo svg {
+  height: 2.5rem;
+}
+
+.bit-header__logo svg path {
+  fill: var(--clr-brand);
+}
+
+/* === Navigation (Desktop) === */
+.bit-header__nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  transition: right 0.3s ease;
+}
+
+.bit-header__link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.bit-header__cta {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* === Burger Button (hidden desktop) === */
+.bit-header__burger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* === Overlay (hidden by default) === */
+.bit-header__overlay {
+  display: none;
+}
+
+/* === Mobile (<600px) === */
+@media (max-width: 600px) {
+  /* Show burger */
+  .bit-header__burger {
+    display: block;
+    position: relative;
+    z-index: 3; /* ganz oben */
+  }
+
+  /* Off‑canvas nav */
+  .bit-header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    gap: 1rem;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* über Overlay */
+  }
+  .bit-header__nav.is-open {
+    right: 0;
+  }
+
+  /* Overlay behind nav */
+  .bit-header__overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* unter Nav */
+  }
+  .bit-header__overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* === Footer === */
+.bit-footer {
+background: linear-gradient(135deg, var(--clr-neutral-light), #e0dfdf, rgba(255, 255, 255, 0.3), var(--clr-neutral-light));
+  padding-block: 1rem;
+  position: relative;
+}
+
+.bit-footer:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(45deg,white,  var(--clr-text), white);
+}
+
+.bit-footer__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: var(--max-width);
+  gap:1rem;
+  margin: 0 auto;
+}
+
+/* Brand */
+.bit-footer__brand {
+  grid-column: span 1;
+  background: linear-gradient(135deg, transparent,  rgba(255,255,255,.6), transparent);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-left: 1rem;
+}
+
+.bit-footer__logo {
+  font-weight: bold;
+  font-size: 1rem;
+  
+}
+
+.bit-footer__logo svg {
+  height: 2.75rem;
+  opacity: .6;
+  filter: drop-shadow(0 0 .75rem rgba(0, 0, 0, 0.25));
+}
+.bit-footer__logo svg path {
+  fill: white
+}
+
+.bit-footer__slogan {
+  font-style: italic;
+  color: var(--clr-text-muted);
+}
+
+/* Sections wrapper */
+.bit-footer__sections {
+  display: contents;
+}
+
+.bit-footer__section {
+  min-width: 150px;
+  padding: .75rem;
+}
+
+.bit-footer__title {
+  font-weight: 400;
+  display: inline-block;
+  position: relative;
+}
+
+.bit-footer__title::after{
+    content: '';
+    position: absolute;
+    bottom: -.25rem;
+    left: -.5rem;
+    width: 70%;
+    border-bottom: 1px solid var(--clr-neutral);
+}
+
+.bit-footer__list {
+  list-style: none;
+  padding-left: .5rem;
+  padding-top: .5rem;
+  border-left: 1px solid var(--clr-neutral);
+
+}
+
+.bit-footer__link {
+  text-decoration: none;
+  color: var(--clr-text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.bit-footer__link:hover {
+  text-decoration: wavy underline;
+  color: var(--clr-text);
+}
+
+/* Mobile (<600px) */
+@media (max-width: 600px) {
+  .bit-footer__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .bit-footer__sections {
+    gap: 1.25rem;
+  }
+  .bit-footer__section {
+    width: 100%;
+  }
+}
+
+.bit-footer__copy{
+    font-size: 80%;
+    margin-top: .25rem;
+    color: var(--clr-neutral-dark);
+}

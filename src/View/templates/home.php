@@ -1,2 +1,4 @@
-<?php
-// TODO: Implement home.php
+<section class="x-center">
+    Hello Mellow Caramelo
+</section>
+
