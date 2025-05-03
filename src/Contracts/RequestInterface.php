@@ -1,2 +1,22 @@
 <?php
-// TODO: Implement RequestInterface.php
+
+namespace Lightway\Contracts;
+
+interface RequestInterface
+{
+    public function getMethod(): string;
+
+    public function getUri(): string;
+
+    public function getHeaders(): array;
+
+    public function getBody(): string;
+
+    public function getQueryParams(): array;
+
+    public function getPostParams(): array;
+
+    public function getFiles(): array;
+
+    public function getCookies(): array;
+}
