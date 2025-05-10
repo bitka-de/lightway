@@ -8,7 +8,7 @@ class HomeController extends Controller
     public function index()
     {
         $this->view->render('home', [
-            'title' => 'About Us',
+            'title' => 'Webagentur aus Karlsruhe',
         ]);
     }
 

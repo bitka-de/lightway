@@ -9,7 +9,7 @@
         <nav class="bit-header__nav" id="nav">
             <a href="#agentur" class="bit-header__link">Agentur</a>
             <a href="#leistungen" class="bit-header__link">Leistungen</a>
-            <a href="#termin" class="bit-header__cta">Termin buchen</a>
+            <a href="#termin" class="bit-header__cta">Let’s talk!</a>
         </nav>
 
         <button class="bit-header__burger" id="burger" aria-label="Menü öffnen">

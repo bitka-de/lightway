@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'No title' ?></title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Bitka" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
 </head>
 
-<body class="bitka">
-    {{header}}
-    <div class="content">
-        <?= $content ?? 'content' ?>
-    </div>
-    {{footer}}
+<body>
+
+    <?= $content ?? 'content' ?>
+
 
     <script>
         class BitHeaderMobileMenu {
